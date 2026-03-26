@@ -1,0 +1,74 @@
+generator_ckpt: checkpoints/ode_audio_init.pt
+models:
+  lora:
+    model_config:
+      in_dim: 33
+    lora_target_modules: q,k,v,o,ffn.0,ffn.2
+    init_lora_weights: kaiming
+    lora_rank: 128
+    lora_alpha: 64.0
+text_encoder_fsdp_wrap_strategy: size
+denoise_steps:
+- 1000
+- 800
+- 400
+- 200
+warp_denoising_step: true # if true, interpret denoise_steps as step indices and map to scheduler timesteps
+num_train_timestep: 1000
+timestep_shift: 5.0
+guidance_scale: 4.5
+denoising_loss_type: flow
+mixed_precision: true
+seed: 42
+sharding_strategy: hybrid_full
+lr: 1.5e-06
+lr_critic: 4.0e-07
+beta1: 0.0
+beta2: 0.999
+beta1_critic: 0.0
+beta2_critic: 0.999
+batch_size: 1
+ema_weight: 0.99
+ema_start_step: 200
+total_batch_size: 64
+log_iters: 100
+negative_prompt: '色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走，蓝绿色偏色，青绿色调，偏青偏蓝，画面发青，冷色偏移，白平衡偏冷，肤色发青，青蓝滤镜，teal tone, cyan cast, greenish tint, cold white balance'
+dfake_gen_update_ratio: 5
+image_or_video_shape:
+- 1
+- 21
+- 16
+- 60
+- 104
+distribution_loss: dmd
+trainer: score_distillation
+data:
+  path: 
+  wav2vec_path: ./wan_models/wav2vec2-base-960h
+  target_area:
+    - 832
+    - 480
+  teacher_len: 80
+  fps: 25
+gradient_checkpointing: true
+num_frame_per_block: 4
+load_raw_video: false
+model_kwargs:
+  timestep_shift: 5.0
+  model_init_kwargs:
+    model_type: t2v
+    patch_size: [1, 2, 2]
+    text_len: 512
+    in_dim: 33
+    dim: 1536
+    ffn_dim: 8960
+    freq_dim: 256
+    text_dim: 4096
+    out_dim: 16
+    num_heads: 12
+    num_layers: 30
+    qk_norm: true
+    cross_attn_norm: true
+    eps: 1.0e-6
+    use_audio: true
+    audio_hidden_size: 32
