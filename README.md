@@ -1,17 +1,3 @@
----
-license: apache-2.0
-language:
-- en
-base_model:
-- Wan-AI/Wan2.1-T2V-1.3B
-pipeline_tag: image-to-video
-tags:
-- image-to-video
-- audio-conditioned
-- diffusion
-- pytorch
----
-
 <p align="center">
   <img src="./assets/logo.svg" width="220px" alt="AvatarForcing">
 </p>
