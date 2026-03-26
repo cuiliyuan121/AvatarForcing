@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="260" viewBox="0 0 900 260" role="img" aria-label="AvatarForcing">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffbd45"/>
+      <stop offset="1" stop-color="#5b8cff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect x="20" y="20" width="860" height="220" rx="32" fill="#0b1020" filter="url(#shadow)"/>
+  <rect x="44" y="44" width="120" height="120" rx="26" fill="url(#g)"/>
+  <path d="M84 122c22 16 46 16 68 0" fill="none" stroke="#0b1020" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="86" cy="92" r="10" fill="#0b1020"/>
+  <circle cx="122" cy="92" r="10" fill="#0b1020"/>
+  <text x="190" y="118" fill="#e8eefc" font-family="ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="56" font-weight="800">
+    AvatarForcing
+  </text>
+  <text x="190" y="168" fill="#a9b6d3" font-family="ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="26" font-weight="500">
+    Audio-driven avatar video generation
+  </text>
+</svg>
