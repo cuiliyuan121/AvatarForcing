@@ -82,7 +82,7 @@ python3 inference.py \
   --config_path configs/avatarforcing.yaml \
   --output_folder outputs \
   --checkpoint_path checkpoints/model.pt \
-  --data_path <your_data_path> \
+  --data_path example/promot.txt \
   --num_output_frames 225 \
   --i2v
 ```
