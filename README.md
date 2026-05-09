@@ -63,7 +63,7 @@ mkdir -p wan_models checkpoints
 
 huggingface-cli download Wan-AI/Wan2.1-T2V-1.3B \
   --local-dir-use-symlinks False \
-  --local-dir ./wan_models/Wan-T2V-1.3
+  --local-dir ./wan_models/Wan2.1-T2V-1.3B
 
 huggingface-cli download facebook/wav2vec2-base-960h \
   --local-dir-use-symlinks False \
